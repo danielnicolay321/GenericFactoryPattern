@@ -6,20 +6,16 @@ namespace GenericFactoryPatternTest.Generator
 {
     public class ReportGenerator : IActivity
     {
-        public T ReturnModel<T>(int id, string docname)
+        public T CreateModel<T>()
         {
-            return (T)Convert.ChangeType(CreateModel(id, docname), typeof(T));
+            return (T)Convert.ChangeType(CreateEmptyModel(), typeof(T));
+        }
 
+        private ReportGeneratorModel CreateEmptyModel()
+        {
+            return new ReportGeneratorModel();
         }
 
 
-        private ReportGeneratorModel CreateModel(int id, string docname)
-        {
-            return new ReportGeneratorModel
-            {
-                Id = id,
-                DocName = docname
-            };
-        }
     }
 }

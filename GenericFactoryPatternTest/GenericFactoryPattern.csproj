@@ -47,6 +47,7 @@
     <Compile Include="Generator\ReportAnalyser.cs" />
     <Compile Include="Generator\ReportGenerator.cs" />
     <Compile Include="Interfaces\IActivity.cs" />
+    <Compile Include="Models\ReportAnalyserModel.cs" />
     <Compile Include="Models\ReportGeneratorModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

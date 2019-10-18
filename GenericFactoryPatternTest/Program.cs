@@ -10,12 +10,17 @@ namespace GenericFactoryPatternTest
     {
         public static void Main(string[] args)
         {
-            IActivity obj = null;
+            IActivity objReport = null;
+            IActivity objAnalyser = null;
 
-            obj = FactoryPattern<IActivity, ReportGenerator>.CreateInstance();
+            objReport = FactoryPattern<IActivity, ReportGenerator>.CreateInstance();
+            objAnalyser = FactoryPattern<IActivity, ReportAnalyser>.CreateInstance();
 
-            var tst = obj.ReturnModel<ReportGeneratorModel>(1990, "maça e cebola");
-            Console.WriteLine(tst);
+            var report = objReport.CreateModel<ReportGeneratorModel>();
+            var analyser = objAnalyser.CreateModel<ReportAnalyserModel>();
+
+            Console.WriteLine(report);
+            Console.WriteLine(analyser);
         }
 
         

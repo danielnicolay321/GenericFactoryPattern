@@ -4,20 +4,17 @@ using System;
 
 namespace GenericFactoryPatternTest.Generator
 {
-    public class ReportAnalyser
+    public class ReportAnalyser : IActivity
     {
-        public T ReturnModel<T>()
+        public T CreateModel<T>()
         {
-            return (T)Convert.ChangeType(CreateModel(), typeof(T));
+            return (T)Convert.ChangeType(CreateEmptyModel(), typeof(T));
 
         }
-        private ReportGeneratorModel CreateModel()
+
+        private ReportAnalyserModel CreateEmptyModel()
         {
-            return new ReportGeneratorModel
-            {
-                Id = 1,
-                DocName = "Doc Name Test"
-            };
+            return new ReportAnalyserModel();
         }
     }
 }
